@@ -1,6 +1,8 @@
 #' @title Create command declaring for the AFNI directory
 #' @description Finds the AFNIDIR from system environment or \code{getOption("afni.path")}
 #' for location of AFNI functions
+#' @param fallback (logical) should \code{DYLD_FALLBACK_LIBRARY_PATH} be exported 
+#' so that libs work?
 #' @return NULL if AFNI in path, or bash code for setting up AFNI DIR
 #' @export
 get_afni = function(fallback = TRUE){
@@ -14,6 +16,7 @@ get_afni = function(fallback = TRUE){
       def_paths = c("~/abin", "~/afni", "~/afni_bin", "/usr/share/afni")
       for (def_path in def_paths) {
         if (file.exists(def_path)) {
+          def_path = path.expand(def_path)
           warning(paste0("Setting afni.path to ", def_path))
           options(afni.path = def_path)
           afnidir = def_path
@@ -36,3 +39,6 @@ get_afni = function(fallback = TRUE){
   if (afnidir %in% "") stop("Can't find AFNI")
   return(cmd)
 }
+
+
+

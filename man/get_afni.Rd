@@ -6,6 +6,10 @@
 \usage{
 get_afni(fallback = TRUE)
 }
+\arguments{
+\item{fallback}{(logical) should \code{DYLD_FALLBACK_LIBRARY_PATH} be exported 
+so that libs work?}
+}
 \value{
 NULL if AFNI in path, or bash code for setting up AFNI DIR
 }
