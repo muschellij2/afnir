@@ -1,0 +1,24 @@
+Package: afnir
+Type: Package
+Title: Wrapper Functions for 'AFNI' (Analysis of Functional 'NeuroImages')
+Version: 0.1.0
+Date: 2016-09-20
+Author: John Muschelli <muschellij2@gmail.com>
+Maintainer: John Muschelli <muschellij2@gmail.com>
+Imports:
+    oro.nifti,
+    snow,
+    nlme,
+    contrast,
+    fastICA,
+    afex,
+    phia
+Description: Wrapper functions that interface with 'AFNI' (https://afni.nimh.nih.gov/afni),
+    a powerful and commonly-used 'neuroimaging'
+    software, using system commands. The goal is to be able to interface with 'AFNI'
+    completely in R, where you pass R objects of class 'nifti', implemented by
+    package 'oro.nifti', and the function executes an 'AFNI' command and returns an R
+    object of class 'nifti' if desired.
+BugReports: 
+License: GPL-2
+RoxygenNote: 5.0.1.9000

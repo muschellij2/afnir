@@ -1,0 +1,274 @@
+   -epi                
+      use:                EPI dataset to align or to which to align
+   -dset2              
+      use:                dataset to align or to which to align
+   -anat               
+      use:                Anatomical dataset to align or to which to align
+   -dset1              
+      use:                Dataset to align or to which to align
+   -keep_rm_files      
+      use:                Don't delete any of the temporary files created here
+   -prep_only          
+      use:                Do preprocessing steps only without alignment
+   -help               
+      use:                The main help describing this program with options
+   -limited_help       
+      use:                The main help without all available options
+   -option_help        
+      use:                Help for all available options
+   -version            
+      use:                Show version number and exit
+   -ver                
+      use:                Show version number and exit
+   -verb               
+      use:                Be verbose in messages and options
+   -save_script        
+      use:                save executed script in given file
+   -align_centers      
+      use:                align centers of datasets based on spatial
+                          extents of the original volume.
+                          Not currently enabled. Please use @Align_Centers
+      allowed:            yes, no
+      default:            no
+   -anat_has_skull     
+      use:                Do not skullstrip anat dataset
+      allowed:            yes, no
+   -epi_strip          
+      use:                Method to remove skull for EPI data
+      allowed:            3dSkullStrip, 3dAutomask, None
+   -dset1_strip        
+      use:                Method to remove skull for dset1 data
+      allowed:            3dSkullStrip, 3dAutomask, None
+   -dset2_strip        
+      use:                Method to remove skull for dset2 data
+      allowed:            3dSkullStrip, 3dAutomask, None
+   -volreg_method      
+      use:                Time series volume registration method
+                          3dvolreg: rigid body least squares
+                          3dWarpDrive: 12 parameter least squares
+                          3dAllineate: 12 parameter LPA cost function
+                          
+      allowed:            3dvolreg, 3dWarpDrive, 3dAllineate
+      default:            3dvolreg
+   -ex_mode            
+      use:                Command execution mode.
+                          quiet: execute commands quietly
+                          echo: echo commands executed
+                          dry_run: only echo commands
+                          
+      allowed:            quiet, echo, dry_run, script
+      default:            script
+   -overwrite          
+      use:                Overwrite existing files
+   -big_move           
+      use:                Large movement between epi and anat.
+                          Uses twopass option for 3dAllineate.
+                          Consider cmass options or @Align_Centers
+   -giant_move         
+      use:                Even larger movement between epi and anat.
+                          Uses twopass option for 3dAllineate.
+                          cmass options and wide angles and shifts
+   -partial_coverage   
+      use:                partial_xxxx options control center of mass adjustment
+   -partial_axial      
+   -partial_coronal    
+   -partial_sagittal   
+   -AddEdge            
+      use:                Run @AddEdge script to create double-edge images
+   -Allineate_opts     
+      use:                Options passed to 3dAllineate.
+      default:            -weight_frac 1.0 -maxrot 6 -maxshf 10 -VERB -warp aff -source_automask+4 
+   -perc               
+      default:            90
+   -suffix             
+      default:            _al
+   -cost               
+   -multi_cost         
+      use:                can use multiple cost functionals (lpc,lpa,nmi,....
+                          See 3dAllineate -HELP for the full list
+                          
+   -check_cost         
+      use:                Verify alignment against another method
+                          Can use multiple cost functionals (lpc,lpa,nmi,....
+                          See 3dAllineate -HELP for the full list
+                          
+   -epi2anat           
+      use:                align EPI dataset to anat dataset
+   -anat2epi           
+      use:                align anat dataset to EPI dataset (default)
+   -dset2to1           
+      use:                align dset2 dataset to dset1 dataset
+   -dset1to2           
+      use:                align dset1 dataset to dset2 dataset (default)
+   -epi_base           
+      use:                Base sub-brick to use for alignment
+                          Choose sub-brick number or statistic type
+                          Valid choices can be, for example, 0,5,mean
+   -dset2_base         
+      use:                Base sub-brick to use for alignment
+                          Choose sub-brick number or statistic type
+                          Valid choices can be, for example, 0,5,mean
+   -volreg_base        
+      use:                Base to use for volume registration
+                          Choose sub-brick number or statistic type
+                          Valid choices can be, for example, 0,5,median
+   -volreg             
+      allowed:            on, off
+   -volreg_opts        
+      default:            -cubic
+   -tshift             
+      allowed:            on, off
+   -tshift_opts        
+   -deoblique          
+      allowed:            on, off
+   -deoblique_opts     
+   -resample           
+      allowed:            on, off
+   -prep_off           
+      use:                turn off all pre-processing steps including
+                          deoblique, tshift, volreg and resample
+   -cmass              
+      use:                center of mass options for 3dAllineate
+                          Valid options include cmass+a, cmass+xy, nocmass
+                          
+   -tlrc_apar          
+      use:                If this is set, the results will include +tlrc
+                          template transformed datasets for the epi aligned
+                          to the anatomical combined with this additional
+                          transformation to template of this parent dataset
+                          The result will be EPI_al+tlrc.HEAD
+                          
+   -tlrc_epar          
+      use:                Not available yet.
+                          If this is set, the results will include +tlrc
+                          template transformed datasets for the anatomical
+                          aligned to the epi combined with this additional
+                          transformation to template of this parent dataset
+                          The result will be ANAT_al+tlrc.HEAD
+                          
+   -auto_tlrc          
+      use:                Not available yet.
+                          If this is set, the results will also be aligned
+                          to a template using the @auto_tlrc script.
+                          Transformations computed from that will be combined
+                          with the anat to epi transformations and epi to anat
+                          (and volreg) transformations
+                          0nly one of the -tlrc_apar, -tlrc_epar or the 
+                          -auto_tlrc options may be used
+                          
+   -child_epi          
+      use:                Names of child EPI datasets
+   -child_dset2        
+      use:                Names of children of dset2 datasets
+   -child_anat         
+      use:                Names of child anatomical datasets
+   -child_dset1        
+      use:                Names of children of dset1 datasets
+   -master_epi         
+      use:                -master grid resolution for epi to anat alignment
+                          MIN_DXYZ uses the smallest dimension
+                          Other options are SOURCE and BASE as in 3dAllineate
+                          help. For cases where either dataset is oblique, the
+                          default becomes MIN_DXYZ
+   -master_dset2       
+      use:                -master grid resolution for epi to anat alignment
+                          MIN_DXYZ uses the smallest dimension
+                          Other options are SOURCE and BASE as in 3dAllineate
+                          help. For cases where either dataset is oblique, the
+                          default becomes MIN_DXYZ
+   -master_tlrc        
+      use:                -master grid resolution for epi to tlrc anat
+                          alignment
+                          MIN_DXYZ uses the smallest dimension
+                          Other options are SOURCE and BASE as in 3dAllineate
+                          help
+   -master_anat        
+      use:                -master grid resolution for anat to epi output
+                          MIN_DXYZ uses the smallest dimension
+                          Other options are SOURCE, BASE, 'n' mm or gridset
+   -master_dset1       
+      use:                -master grid resolution for dset1 to dset2 output
+                          MIN_DXYZ uses the smallest dimension
+                          Other options are SOURCE, BASE, 'n' mm or gridset
+   -master_anat_dxyz   
+      use:                -master grid resolution size (cubic only)
+                          
+   -master_dset1_dxyz  
+      use:                -master grid resolution size (cubic only)
+                          
+   -master_epi_dxyz    
+      use:                -master grid resolution (cubic only)
+                          
+   -master_dset2_dxyz  
+      use:                -master grid resolution (cubic only)
+                          
+   -master_tlrc_dxyz   
+      use:                -master grid resolution (cubic only)
+                          
+   -pre_matrix         
+      use:                Apply an initial transformation from a 1D file.
+                          For example, this file may be one generated by 
+                          @align_centers. The transformation will be applied
+                          to the anatomical data before aligning to the EPI
+                          instead of using the built-in obliquity matrices,
+                          if any
+   -post_matrix        
+      use:                Apply an additional transformation from a 1D file.
+                          This transformation will be applied to the anatomical
+                          data after alignment with the EPI. This will be
+                          applied similarly to the tlrc transformation and in
+                          place of it.
+                          Output datasets are kept in the 'orig' view
+   -skullstrip_opts    
+      use:                Alternate options for 3dSkullstrip.
+                          like -rat or -blur_fwhm 2
+   -feature_size       
+      use:                Minimal size in mm of structures in images to match.
+                          Changes options for 3dAllineate for the coarse
+                          blurring and lpc/lpa neighborhood sizes.May be useful
+                          for rat brains, anat to anat and other
+                          'non-standard' alignment
+   -rat_align          
+      use:                Set options appropriate for rat data - 
+                          namely skullstrip and feature size options above.
+                          
+   -output_dir         
+      use:                Set directory for output datasets
+                          
+   -edge               
+      use:                Use internal edges to do alignment
+   -edge_erodelevel    
+      use:                Number of layers to remove for edge method
+   -save_Al_in         
+      use:                Save datasets used as input to 3dAllineate
+   -save_vr            
+      use:                Save motion-corrected epi dataset
+   -save_tsh           
+      use:                Save time-series corrected dataset
+   -save_skullstrip    
+      use:                Save unaligned, skullstripped dataset
+   -save_orig_skullstrip
+      use:                Save simply skullstripped dataset
+   -save_epi_ns        
+      use:                Save unaligned, skullstripped EPI dataset
+   -save_rep           
+      use:                Save unaligned representative tstat EPI dataset
+   -save_resample      
+      use:                Save unaligned EPI dataset resampled to anat grid
+   -save_all           
+      use:                Save all optional datasets
+   -pow_mask           
+      use:                power for weighting 1 or 2
+      default:            1.0
+   -bin_mask           
+      use:                convert weighting mask to 0 or 1 - Unused
+      allowed:            yes, no
+      default:            no
+   -box_mask           
+      use:                Unused
+      allowed:            yes, no
+      default:            no
+   -mask               
+      use:                Not available yet.
+                          Mask to apply to data.
+      default:            vent
