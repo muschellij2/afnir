@@ -6,6 +6,7 @@ Date: 2017-04-20
 Author: John Muschelli <muschellij2@gmail.com>
 Maintainer: John Muschelli <muschellij2@gmail.com>
 Imports:
+    oro.nifti,
     neurobase,
     snow,
     nlme,
