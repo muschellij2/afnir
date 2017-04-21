@@ -14,3 +14,6 @@ nifti_to_afni(file, outfile = NULL)
 \value{
 A character filename of the output BRIK
 }
+\description{
+Converts a NIfTI image to an AFNI file using \code{afni_3dcalc}
+}

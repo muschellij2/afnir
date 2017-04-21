@@ -2,10 +2,13 @@
 % Please edit documentation in R/afni_to_nifti.R
 \name{afni_3dAFNItoNIFTI}
 \alias{afni_3dAFNItoNIFTI}
+\alias{afni_to_nifti}
 \title{Convert AFNI File to NIFTI Image}
 \usage{
 afni_3dAFNItoNIFTI(file, outfile = NULL, opts = "", float = TRUE,
   retimg = TRUE, ...)
+
+afni_to_nifti(...)
 }
 \arguments{
 \item{file}{AFNI BRIK or HEAD file}
@@ -26,4 +29,8 @@ afni_3dAFNItoNIFTI(file, outfile = NULL, opts = "", float = TRUE,
 \value{
 If \code{retimg} then object of class nifti.  Otherwise,
 the \code{outfile} argument is returned (or a temporary filename)
+}
+\description{
+Converts an AFNI file to an NIfTI file or \code{nifti} 
+using \code{3dAFNItoNIFTI}
 }

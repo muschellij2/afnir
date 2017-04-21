@@ -1,5 +1,6 @@
 #' @title Convert AFNI File to NIFTI Image
-#'
+#' @description Converts an AFNI file to an NIfTI file or \code{nifti} 
+#' using \code{3dAFNItoNIFTI}
 #' @param file AFNI BRIK or HEAD file
 #' @param outfile output filename or prefix.  The default is to always use
 #' \code{.nii.gz} extensions and will override if \code{outfile} has a
@@ -52,6 +53,7 @@ afni_3dAFNItoNIFTI = function(
   return(img)
 }
 
+#' @rdname afni_3dAFNItoNIFTI
 #' @export
 afni_to_nifti = function(...) {
   afni_3dAFNItoNIFTI(...)  

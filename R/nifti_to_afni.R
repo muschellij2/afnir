@@ -1,5 +1,6 @@
 #' @title Convert NIfTI Image to AFNI FIle
-#'
+#' @description Converts a NIfTI image to an AFNI file using \code{afni_3dcalc}
+#' 
 #' @param file NIfTI image or \code{nifti} object
 #' @param outfile output filename or prefix.  
 #'
