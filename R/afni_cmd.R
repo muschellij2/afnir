@@ -1,6 +1,7 @@
 #' @title afni Command Wrapper
-#' @description This function calls Freesurfer command passed to \code{func}
-#' @param func (character) Freesurfer function
+#' @description This function calls AFNI command passed to \code{func}
+#' 
+#' @param func (character) AFNI function
 #' @param file (character) image to be manipulated
 #' @param outfile (character) resultant image name (optional)
 #' @param retimg (logical) return image of class nifti
@@ -11,18 +12,27 @@
 #' @param verbose (logical) print out command before running
 #' @param samefile (logical) is the output the same file?
 #' @param opts_after_outfile (logical) should \code{opts} come after 
-#' the \code{outfile} in the Freesurfer command?
+#' the \code{outfile} in the AFNI command?
 #' @param frontopts (character) options/character to put in before filename
 #' @param add_ext (logical) should the extension be added to 
 #' the \code{outfile}
 #' @param bin_app (character) appendix to add to \code{\link{get_afni}}
+#' @param quote_file should the filename be quoted in double 
+#' quotes?
+#' @param quote_outfile should the output filename be quoted in double 
+#' quotes?
+#' @param run (logical) Should the command be run?  If this is false, 
+#' nothing is done
 #' @param ... additional arguments passed to \code{\link{system}}.
+#' 
+#' @export
 #' @return If \code{retimg} then object of class nifti.  Otherwise,
 #' Result from system command, depends if intern is TRUE or FALSE.
+#' @importFrom neurobase check_outfile nii.stub readnii checkimg
 afni_cmd = function(
   func,
   file,
-  outfile=NULL, 
+  outfile = NULL, 
   retimg = TRUE,
   reorient = FALSE,
   intern = FALSE, 
@@ -33,6 +43,9 @@ afni_cmd = function(
   frontopts = "",
   add_ext = TRUE,
   bin_app = "bin",
+  quote_file = TRUE,
+  quote_outfile = TRUE,
+  run = TRUE,
   ...){
   
   cmd = get_afni()
@@ -45,7 +58,11 @@ afni_cmd = function(
   s = sprintf('%s %s ', func, frontopts)
   s = gsub("\\s\\s+", " ", s)
   s = sub("[ \t\r\n]+$", "", s, perl = TRUE)
-  s = paste(s, sprintf('"%s"', file))
+  if (quote_file) {
+    s = paste(s, sprintf('"%s"', file))
+  } else {
+    s = paste(s, file)
+  }
   cmd <- paste0(cmd, s)
   # cmd <- paste0(cmd, sprintf('%s "%s"', func, file))
   
@@ -53,7 +70,7 @@ afni_cmd = function(
   if (no.outfile & samefile) {
     outfile = ""  
   }
-  ext = fs_imgext()
+  ext = ".nii.gz"
   outfile = check_outfile(outfile = outfile, 
                           retimg = retimg, fileext = ext)
   if (add_ext) {
@@ -62,16 +79,25 @@ afni_cmd = function(
   }
   
   if ( !(no.outfile & samefile) ) {
+    if (quote_outfile) {
+      outfile = paste0('"', outfile, '"')
+    }
     if (!opts_after_outfile) {
-      cmd <- paste(cmd, sprintf(' %s "%s";', opts, outfile))
+      cmd <- paste(cmd, sprintf(' %s %s;', opts, outfile))
     } else {
-      cmd <- paste(cmd, sprintf(' "%s" %s;', outfile, opts))
+      cmd <- paste(cmd, sprintf(' %s %s;', outfile, opts))
     }
   } else {
     cmd <- paste(cmd, sprintf(' %s;', opts))
   }
   if (verbose) {
     message(cmd, "\n")
+  }
+  if (!run) {
+    if (!verbose) {
+      message(cmd, "\n")
+    }
+    return()
   }
   res = system(cmd, intern = intern, ...)
   if (retimg) {

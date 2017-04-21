@@ -19,4 +19,3 @@ Uses \code{get_afni} to check if AFNIDIR is accessible or the option
 \examples{
 have_afni()
 }
-

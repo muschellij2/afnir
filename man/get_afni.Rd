@@ -17,4 +17,3 @@ NULL if AFNI in path, or bash code for setting up AFNI DIR
 Finds the AFNIDIR from system environment or \code{getOption("afni.path")}
 for location of AFNI functions
 }
-

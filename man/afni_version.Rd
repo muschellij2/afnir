@@ -20,4 +20,3 @@ if (have_afni()) {
  afni_version()
 }
 }
-

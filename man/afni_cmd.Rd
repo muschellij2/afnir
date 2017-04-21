@@ -7,10 +7,11 @@
 afni_cmd(func, file, outfile = NULL, retimg = TRUE, reorient = FALSE,
   intern = FALSE, opts = "", verbose = TRUE, samefile = FALSE,
   opts_after_outfile = FALSE, frontopts = "", add_ext = TRUE,
-  bin_app = "bin", ...)
+  bin_app = "bin", quote_file = TRUE, quote_outfile = TRUE, run = TRUE,
+  ...)
 }
 \arguments{
-\item{func}{(character) Freesurfer function}
+\item{func}{(character) AFNI function}
 
 \item{file}{(character) image to be manipulated}
 
@@ -30,7 +31,7 @@ Passed to \code{\link{readnii}}.}
 \item{samefile}{(logical) is the output the same file?}
 
 \item{opts_after_outfile}{(logical) should \code{opts} come after 
-the \code{outfile} in the Freesurfer command?}
+the \code{outfile} in the AFNI command?}
 
 \item{frontopts}{(character) options/character to put in before filename}
 
@@ -39,6 +40,15 @@ the \code{outfile}}
 
 \item{bin_app}{(character) appendix to add to \code{\link{get_afni}}}
 
+\item{quote_file}{should the filename be quoted in double 
+quotes?}
+
+\item{quote_outfile}{should the output filename be quoted in double 
+quotes?}
+
+\item{run}{(logical) Should the command be run?  If this is false, 
+nothing is done}
+
 \item{...}{additional arguments passed to \code{\link{system}}.}
 }
 \value{
@@ -46,6 +56,5 @@ If \code{retimg} then object of class nifti.  Otherwise,
 Result from system command, depends if intern is TRUE or FALSE.
 }
 \description{
-This function calls Freesurfer command passed to \code{func}
+This function calls AFNI command passed to \code{func}
 }
-
