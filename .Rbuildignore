@@ -4,3 +4,4 @@
 Parse_AFNI_ReadME.R
 txts/*
 ^appveyor\.yml$
+^\.travis\.yml$
