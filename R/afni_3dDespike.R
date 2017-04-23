@@ -1,14 +1,26 @@
 #' @title Convert AFNI File to NIFTI Image
 #' @description Converts an AFNI file to an NIfTI file or \code{nifti} 
 #' using \code{3dDespike}
+#'
 #' @param file AFNI BRIK or HEAD file
-#' @param outfile output filename or prefix.  The default is to always use
-#' \code{.nii.gz} extensions and will override if \code{outfile} has a
-#' \code{.nii} extension.
 #' @param opts Additional options to pass to \code{3dDespike}
-#' @param float Should the \code{-float} option be called in 
-#' \code{3dDespike}
 #' @param retimg Should an image be returned?
+#' @param ignore_vols Number of volumes to ignore/delete
+#' @param curve_order the curve fit order 
+#' @param cut_values a length 2 vector with the first being
+#' the threshold value of sigma for a spike and the second being 
+#' the upper range of the allowed deviation from the curve:
+#' @param mask should a mask of high-intensity voxels be used (\code{TRUE}) or 
+#' all voxels (\code{FALSE})
+#' @param dilate dilation factor of the mask
+#' @param localedit Change the editing process to the following:
+#' If a voxel |s| value is >= c2, then replace
+#' the voxel value with the average of the two
+#' nearest non-spike (|s| < c2) values; the first
+#' one previous and the first one after.
+#' Note that the first cut value is not used here.
+#' @param method should the NEW or OLD method be used for the L1 fit.  NEW is 
+#' faster
 #' @param ... additional arguments to \code{\link{readnii}}
 #'
 #' @return If \code{retimg} then object of class nifti.  Otherwise,

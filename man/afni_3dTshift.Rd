@@ -25,14 +25,19 @@ alt-z2            = alternating, starting at slice #nz-2 instead of #nz-1
 seq+z = seqplus   = sequential in the plus direction
 seq-z = seqminus  = sequential in the minus direction}
 
+\item{tzero}{time offset to align each slice to 
+(The default alignment time is the average of the 'tpattern' values)}
+
+\item{slice}{slice number indicating the time offset to align each slice to.
+If this is specified \code{tzero} may not be, and vice versa.}
+
+\item{ignore_vols}{Number of volumes to ignore/delete}
+
 \item{opts}{Additional options to pass to \code{3dTshift}}
 
 \item{retimg}{Should an image be returned?}
 
 \item{...}{additional arguments to \code{\link{readnii}}}
-
-\item{float}{Should the \code{-float} option be called in 
-\code{3dTshift}}
 }
 \value{
 If \code{retimg} then object of class nifti.  Otherwise,

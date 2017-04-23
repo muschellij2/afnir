@@ -14,18 +14,34 @@ despike(...)
 \arguments{
 \item{file}{AFNI BRIK or HEAD file}
 
+\item{ignore_vols}{Number of volumes to ignore/delete}
+
+\item{curve_order}{the curve fit order}
+
+\item{cut_values}{a length 2 vector with the first being
+the threshold value of sigma for a spike and the second being 
+the upper range of the allowed deviation from the curve:}
+
+\item{mask}{should a mask of high-intensity voxels be used (\code{TRUE}) or 
+all voxels (\code{FALSE})}
+
+\item{dilate}{dilation factor of the mask}
+
+\item{localedit}{Change the editing process to the following:
+If a voxel |s| value is >= c2, then replace
+the voxel value with the average of the two
+nearest non-spike (|s| < c2) values; the first
+one previous and the first one after.
+Note that the first cut value is not used here.}
+
+\item{method}{should the NEW or OLD method be used for the L1 fit.  NEW is 
+faster}
+
 \item{opts}{Additional options to pass to \code{3dDespike}}
 
 \item{retimg}{Should an image be returned?}
 
 \item{...}{additional arguments to \code{\link{readnii}}}
-
-\item{outfile}{output filename or prefix.  The default is to always use
-\code{.nii.gz} extensions and will override if \code{outfile} has a
-\code{.nii} extension.}
-
-\item{float}{Should the \code{-float} option be called in 
-\code{3dDespike}}
 }
 \value{
 If \code{retimg} then object of class nifti.  Otherwise,

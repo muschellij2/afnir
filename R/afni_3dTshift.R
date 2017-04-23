@@ -1,6 +1,7 @@
 #' @title Convert AFNI File to NIFTI Image
 #' @description Converts an AFNI file to an NIfTI file or \code{nifti} 
 #' using \code{3dTshift}
+#'
 #' @param file AFNI BRIK or HEAD file
 #' @param tr Repetition time. You may attach the suffix 's' for seconds,
 #' or 'ms' for milliseconds.
@@ -12,9 +13,12 @@
 #' seq+z = seqplus   = sequential in the plus direction
 #' seq-z = seqminus  = sequential in the minus direction
 #' @param opts Additional options to pass to \code{3dTshift}
-#' @param float Should the \code{-float} option be called in 
-#' \code{3dTshift}
 #' @param retimg Should an image be returned?
+#' @param tzero time offset to align each slice to 
+#' (The default alignment time is the average of the 'tpattern' values)
+#' @param slice slice number indicating the time offset to align each slice to.
+#' If this is specified \code{tzero} may not be, and vice versa.
+#' @param ignore_vols Number of volumes to ignore/delete
 #' @param ... additional arguments to \code{\link{readnii}}
 #'
 #' @return If \code{retimg} then object of class nifti.  Otherwise,
