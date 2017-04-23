@@ -2,9 +2,12 @@
 % Please edit documentation in R/afni_3dSkullStrip.R
 \name{afni_3dSkullStrip}
 \alias{afni_3dSkullStrip}
+\alias{SkullStrip}
 \title{AFNI 3dSkullStrip function}
 \usage{
 afni_3dSkullStrip(file, opts = "", retimg = TRUE, ...)
+
+SkullStrip(...)
 }
 \arguments{
 \item{file}{nifti object or NIfTI filename.  If more than one is given,

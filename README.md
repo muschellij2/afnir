@@ -3,7 +3,7 @@
 [![Travis-CI Build Status](https://travis-ci.org/muschellij2/afnir.svg?branch=master)](https://travis-ci.org/muschellij2/afnir)
 [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/muschellij2/afnir?branch=master&svg=true)](https://ci.appveyor.com/project/muschellij2/afnir)
 
-The goal of afnir is to wrap AFNI functions in R
+The goal of afnir is to wrap AFNI functions in R.
 
 ## Installation
 

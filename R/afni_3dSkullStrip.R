@@ -17,14 +17,14 @@ afni_3dSkullStrip = function(
   opts = "",
   retimg = TRUE,
   ...) {
-
+  
   func = "3dSkullStrip"
-
+  
   file = checkimg(file)
   outfile = tempfile()
   opts = paste0(opts, " -prefix")
   opts = trimws(opts)
-
+  
   res = afni_cmd(
     file = file,
     func = func,
@@ -43,4 +43,12 @@ afni_3dSkullStrip = function(
   outfile = paste0(outfile, "+orig.BRIK")
   outfile = afni_3dAFNItoNIFTI(outfile, retimg = retimg, ...)
   return(outfile)
+}
+
+
+
+#' @rdname afni_3dSkullStrip
+#' @export
+SkullStrip = function(...) {
+  afni_3dSkullStrip(...)  
 }
