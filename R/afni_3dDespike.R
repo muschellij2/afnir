@@ -77,6 +77,9 @@ afni_3dDespike = function(
   # end of options
   #############################################
   
+  file = checkimg(file)
+  suffix = afni_suffix(file, default = "orig")
+  
   outfile = tempfile(fileext = "")
   opts = c(opts, paste0("-prefix ", outfile))
   opts = paste(opts, collapse = " ")
@@ -95,7 +98,7 @@ afni_3dDespike = function(
     warning(paste0("Result does not indicate success ", 
                    "- function may not work as expected!"))
   }  
-  outfile = paste0(outfile, "+orig.BRIK")
+  outfile = paste0(outfile, suffix, ".BRIK")
   outfile = afni_3dAFNItoNIFTI(outfile, retimg = retimg, ...)
   
   return(outfile)

@@ -40,6 +40,8 @@ afni_3dvolreg = function(
   
   
   func = "3dvolreg"
+  file = checkimg(file)
+  suffix = afni_suffix(file, default = "orig")
   
   ppaste0 = function(..., x) {
     if (is.null(x)) {
@@ -89,7 +91,7 @@ afni_3dvolreg = function(
     warning(paste0("Result does not indicate success ", 
                    "- function may not work as expected!"))
   }  
-  outfile = paste0(outfile, "+orig.BRIK")
+  outfile = paste0(outfile, suffix, ".BRIK")
   
   outfile = afni_3dAFNItoNIFTI(outfile, retimg = retimg, ...)
   attr(outfile, "rp_file") = rp_file
