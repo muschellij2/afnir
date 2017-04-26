@@ -2,6 +2,7 @@
 
 export(SkullStrip)
 export(afni_3dAFNItoNIFTI)
+export(afni_3dAllineate)
 export(afni_3dDespike)
 export(afni_3dSkullStrip)
 export(afni_3dTshift)
