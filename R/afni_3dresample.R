@@ -110,3 +110,8 @@ afni_3dresample = function(
   return(outfile)
 }
 
+#' @rdname afni_3dresample
+#' @export
+resample = function(...) {
+  afni_3dresample(...)  
+}

@@ -2,11 +2,14 @@
 % Please edit documentation in R/afni_3dresample.R
 \name{afni_3dresample}
 \alias{afni_3dresample}
+\alias{resample}
 \title{AFNI 3dresample function}
 \usage{
 afni_3dresample(file, bound_type = NULL, dxyz = NULL, orient = NULL,
   resample_mode = c("NN", "Li", "Cu", "Bk"), master = NULL,
   outfile = NULL, retimg = TRUE, opts = "", ...)
+
+resample(...)
 }
 \arguments{
 \item{file}{nifti object or NIfTI filename.}

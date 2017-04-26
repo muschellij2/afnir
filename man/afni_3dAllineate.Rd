@@ -2,6 +2,7 @@
 % Please edit documentation in R/afni_3dAllineate.R
 \name{afni_3dAllineate}
 \alias{afni_3dAllineate}
+\alias{allineate}
 \title{AFNI 3dAllineate function}
 \usage{
 afni_3dAllineate(file, fixed, cost = c("hel", "ls", "mi", "crM", "nmi", "crA",
@@ -9,9 +10,13 @@ afni_3dAllineate(file, fixed, cost = c("hel", "ls", "mi", "crM", "nmi", "crA",
   final_interpolator = c("cubic", "linear", "NN", "wsinc5", "quintic"),
   typeOfTransform = c("affine_general", "shift_only", "shift_rotate",
   "shift_rotate_scale"), outfile = NULL, retimg = TRUE, opts = "", ...)
+
+allineate(...)
 }
 \arguments{
-\item{file}{nifti object or NIfTI filename.}
+\item{file}{nifti object or NIfTI filename to register to \code{fixed} image}
+
+\item{fixed}{nifti object or NIfTI filename of fixed image, target of registration}
 
 \item{cost}{cost function that defines the matching 
 between the file and the fixed image 

@@ -1,7 +1,8 @@
 #' @title AFNI 3dAllineate function
 #' @description Wrapper for AFNI \code{3dAllineate} function
 #'
-#' @param file nifti object or NIfTI filename.  
+#' @param file nifti object or NIfTI filename to register to \code{fixed} image
+#' @param fixed nifti object or NIfTI filename of fixed image, target of registration 
 #' @param outfile Output filename (should not have an extension)
 #' @param retimg Should an image be returned (\code{TRUE}) or a filename?
 #' @param opts Additional options passed to \code{3dAllineate}
@@ -138,3 +139,8 @@ afni_3dAllineate = function(
   return(outfile)
 }
 
+#' @rdname afni_3dAllineate
+#' @export
+allineate = function(...) {
+  afni_3dAllineate(...)  
+}
