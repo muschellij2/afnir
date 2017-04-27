@@ -53,17 +53,11 @@ afni_3dQwarp = function(
 
   opts = c(opts, ifelse(align, "-allineate", ""))
   if (align) {
-    align_opts = trimws(align_opts)
-    align_opts = strsplit(align_opts, "")[[1]]
+    align_opts = afni_quote_expression(align_opts)
+    align_opts = align_opts[ align_opts != "" ]
     if (length(align_opts) > 0) {
-      if (align_opts[1] != "'") {
-        align_opts = c("'", align_opts)
-      }
-      if (align_opts[length(align_opts)] != "'") {
-        align_opts = c(align_opts, "'")
-      }  
-      align_opts = paste(align_opts, collapse = "")
-      opts = c(opts, ifelse(align, "-allineate_opts ", ""))
+      align_opts = paste0("-allineate_opts ", align_opts)
+      opts = c(opts, ifelse(align, align_opts, ""))
     }
   }
   opts = c(opts, ppaste0("-blur ", x = blur))
