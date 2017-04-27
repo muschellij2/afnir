@@ -96,6 +96,7 @@ afni_3dvolreg = function(
   outfile = afni_3dAFNItoNIFTI(outfile, retimg = retimg, ...)
   attr(outfile, "rp_file") = rp_file
   attr(outfile, "motion_file") = full_motion_file
+  attr(outfile, "afni_version") = afni_version()
   
   return(outfile)
 }

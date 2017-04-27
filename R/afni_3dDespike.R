@@ -100,6 +100,7 @@ afni_3dDespike = function(
   }  
   outfile = paste0(outfile, suffix, ".BRIK")
   outfile = afni_3dAFNItoNIFTI(outfile, retimg = retimg, ...)
+  attr(outfile, "afni_version") = afni_version()
   
   return(outfile)
 }

@@ -50,6 +50,7 @@ afni_3dAFNItoNIFTI = function(
   } else {
     img = outfile
   }
+  attr(img, "afni_version") = afni_version()
   return(img)
 }
 
