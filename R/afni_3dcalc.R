@@ -20,6 +20,7 @@ afni_3dcalc = function(
   ...) {
   func = "3dcalc"
   
+  expression = afni_quote_expression(expression)
   opts = paste0("-expr ", expression, " ", opts)
   opts = trimws(opts)
   
@@ -27,7 +28,7 @@ afni_3dcalc = function(
   suffix = afni_suffix(file, default = "orig")
   
   names(file) = letters[seq(length(file))]
-  file = paste0("-", names(file), ' "', file, '"')
+  file = paste0("-", names(file), " ", file)
   file = paste(file, collapse = " ")
 
   if (is.null(outfile)) {
