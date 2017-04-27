@@ -1,7 +1,7 @@
 Package: afnir
 Type: Package
 Title: Wrapper Functions for 'AFNI' (Analysis of Functional 'NeuroImages')
-Version: 0.4.2
+Version: 0.4.3
 Date: 2017-04-25
 Author: John Muschelli <muschellij2@gmail.com>
 Maintainer: John Muschelli <muschellij2@gmail.com>

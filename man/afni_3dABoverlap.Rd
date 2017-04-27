@@ -2,9 +2,15 @@
 % Please edit documentation in R/afni_3dABoverlap.R
 \name{afni_3dABoverlap}
 \alias{afni_3dABoverlap}
+\alias{ABoverlap}
+\alias{aboverlap}
 \title{AFNI 3dABoverlap function}
 \usage{
 afni_3dABoverlap(file1, file2, automask = TRUE)
+
+ABoverlap(...)
+
+aboverlap(...)
 }
 \arguments{
 \item{file1}{nifti object or NIfTI filename for overlap}

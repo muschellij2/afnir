@@ -37,3 +37,16 @@ afni_3dABoverlap = function(
   # res = res[seq(2, length(res))]
   return(res)
 }
+
+
+#' @rdname afni_3dABoverlap
+#' @export
+ABoverlap = function(...) {
+  afni_3dABoverlap(...)  
+}
+
+#' @rdname afni_3dABoverlap
+#' @export
+aboverlap = function(...) {
+  afni_3dABoverlap(...)  
+}
