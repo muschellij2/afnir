@@ -43,10 +43,16 @@ afni_3dAutomask = function(
   opts = c(opts, paste0("-peels ", n_peels))
   opts = c(opts, paste0("-nbhrs ", n_neighbors))
   
+  if (is.null(outfile)) {
+    outfile = tempfile()
+  }
+  
+  opts = c(opts, paste0("-prefix ", outfile))
   opts = trimws(opts)
   opts = opts[ opts != "" ]
   opts = paste(opts, collapse = " ")
-  opts = paste0(opts, " -prefix")
+  
+
   
   brik_outfile = paste0(outfile, suffix, ".BRIK")
   if (file.exists(brik_outfile)) {
@@ -54,17 +60,18 @@ afni_3dAutomask = function(
                 " delete if overwriting"))
   }
   
+
   res = afni_cmd(
     file = file,
     func = func,
-    opts = opts,
-    outfile = outfile,
-    samefile = FALSE,
-    add_ext = FALSE,
+    frontopts = opts,
+    opts = "",
+    outfile = NULL,
+    samefile = TRUE,
     quote_outfile = FALSE,
-    retimg = FALSE,
-    quote_file = FALSE
-  )  
+    retimg = FALSE
+  )
+
   if (res != 0) {
     warning(paste0("Result does not indicate success ", 
                    "- function may not work as expected!"))
