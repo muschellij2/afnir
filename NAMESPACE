@@ -3,6 +3,7 @@
 export(Qwarp)
 export(SkullStrip)
 export(Winsor)
+export(afni_3dABoverlap)
 export(afni_3dAFNItoNIFTI)
 export(afni_3dAllineate)
 export(afni_3dDespike)
