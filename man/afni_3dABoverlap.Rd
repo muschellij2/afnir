@@ -20,6 +20,8 @@ aboverlap(...)
 \item{automask}{if \code{TRUE}, \code{automask} is run on the files.
 If \code{FALSE}, consider input datasets as masks 
 (automask does not work on mask datasets)}
+
+\item{...}{not used}
 }
 \value{
 Output filename of the brik
