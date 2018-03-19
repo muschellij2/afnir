@@ -22,6 +22,7 @@ afni_3dcalc = function(
   func = "3dcalc"
   
   expression = afni_quote_expression(expression)
+  opts = paste(opts, collapse = " ")
   opts = paste0("-expr ", expression, " ", opts)
   opts = trimws(opts)
   
