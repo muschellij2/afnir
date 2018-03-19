@@ -29,6 +29,7 @@ afni_3dTstat = function(
   }
   
   opts = paste0(opts, " -prefix ", outfile)
+  opts = paste(opts, collapse = " ")
   
   brik_outfile = paste0(outfile, suffix, ".BRIK")
   if (file.exists(brik_outfile)) {
