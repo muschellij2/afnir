@@ -15,7 +15,8 @@
 #' NOT to be peeled.  The 18 nearest neighbors in
 #' the 3D lattice are used, so \code{n_neighbors} should be between
 #' 9 and 18.
-#' @param outfile Output filename (should not have an extension)
+#' @param outfile Output filename, should have a \code{.nii.gz}
+#' extension
 #' @param retimg Should an image be returned (\code{TRUE}) or a filename?
 #' @param opts Additional options passed to \code{3dAutomask}
 #' @param ... additional arguments to \code{\link{afni_3dAFNItoNIFTI}}
@@ -35,7 +36,7 @@ afni_3dAutomask = function(
   func = "3dAutomask"
 
   file = checkimg(file)
-  suffix = afni_suffix(file, default = "orig")
+  # suffix = afni_suffix(file, default = "orig")
   
   opts = c(opts, paste0("-clfrac ", mfrac))
   opts = c(opts, ifelse(gradual_clipping, "", "-nograd"))
@@ -44,21 +45,19 @@ afni_3dAutomask = function(
   opts = c(opts, paste0("-nbhrs ", n_neighbors))
   
   if (is.null(outfile)) {
-    outfile = tempfile()
+    outfile = tempfile(fileext = ".nii.gz")
   }
   
   opts = c(opts, paste0("-prefix ", outfile))
   opts = trimws(opts)
   opts = opts[ opts != "" ]
   opts = paste(opts, collapse = " ")
-  
 
-  
-  brik_outfile = paste0(outfile, suffix, ".BRIK")
-  if (file.exists(brik_outfile)) {
-    stop(paste0("Dataset name conflicts with existing file,", 
-                " delete if overwriting"))
-  }
+  # brik_outfile = paste0(outfile, suffix, ".BRIK")
+  # if (file.exists(brik_outfile)) {
+  #   stop(paste0("Dataset name conflicts with existing file,", 
+  #               " delete if overwriting"))
+  # }
   
 
   res = afni_cmd(
@@ -76,8 +75,9 @@ afni_3dAutomask = function(
     warning(paste0("Result does not indicate success ", 
                    "- function may not work as expected!"))
   }
-  outfile = paste0(outfile, suffix, ".BRIK")
-  outfile = afni_3dAFNItoNIFTI(outfile, retimg = retimg, ...)
+  # outfile = paste0(outfile, suffix, ".BRIK")
+  # outfile = afni_3dAFNItoNIFTI(outfile, retimg = retimg, ...)
+  
   attr(outfile, "afni_version") = afni_version()
   
   return(outfile)

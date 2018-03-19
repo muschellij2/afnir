@@ -37,7 +37,7 @@ afni_3dresample = function(
   func = "3dresample"
   
   file = checkimg(file)
-  suffix = afni_suffix(file, default = "tlrc")
+  suffix = afni_suffix(file, default = "orig")
   
   ppaste0 = function(..., x) {
     if (is.null(x)) {

@@ -2,7 +2,7 @@ Package: afnir
 Type: Package
 Title: Wrapper Functions for 'AFNI' (Analysis of Functional 'NeuroImages')
 Version: 0.4.4
-Date: 2017-04-25
+Date: 2018-03-15
 Author: John Muschelli <muschellij2@gmail.com>
 Maintainer: John Muschelli <muschellij2@gmail.com>
 Imports:
@@ -19,3 +19,6 @@ BugReports: https://github.com/muschellij2/afnir/issues
 SystemRequirements: AFNI <https://afni.nimh.nih.gov/>
 License: GPL-2
 RoxygenNote: 6.0.1
+Suggests: covr,
+  kirby21.t1,
+  kirby21.fmri

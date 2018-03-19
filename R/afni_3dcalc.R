@@ -4,7 +4,8 @@
 #' @param file nifti object or NIfTI filename.  If more than one is given,
 #' they are given names of the letters up to \code{z}.
 #' @param expression Calculation expression, with single quotes
-#' @param outfile Output filename (should not have an extension)
+#' @param outfile Output filename, should have a \code{.nii.gz}
+#' extension
 #' @param retimg Should an image be returned (\code{TRUE}) or a filename?
 #' @param opts Additional options passed to \code{3dcalc}
 #' @param ... additional arguments to \code{\link{afni_3dAFNItoNIFTI}}
@@ -25,22 +26,31 @@ afni_3dcalc = function(
   opts = trimws(opts)
   
   file = checkimg(file)
-  suffix = afni_suffix(file, default = "orig")
+  suffix = afni_suffix(file[1], default = "orig")
   
   names(file) = letters[seq(length(file))]
   file = paste0("-", names(file), " ", file)
   file = paste(file, collapse = " ")
 
   if (is.null(outfile)) {
-    outfile = tempfile()
+    outfile = tempfile(fileext = ".nii.gz")
   }
+  out_ext = parse_img_ext(outfile)
   
   opts = paste0(opts, " -prefix")
-  
-  brik_outfile = paste0(outfile, suffix, ".BRIK")
-  if (file.exists(brik_outfile)) {
-    stop(paste0("Dataset name conflicts with existing file,", 
-                " delete if overwriting"))
+
+    
+  msg = paste0("Dataset name conflicts with existing file,", 
+               " delete if overwriting")
+  if (is.na(out_ext)) {
+    brik_outfile = paste0(outfile, suffix, ".BRIK")
+    if (file.exists(brik_outfile)) {
+      stop(msg)
+    }
+  } else {
+    if (file.exists(outfile)) {
+      stop(msg)
+    }
   }
 
   res = afni_cmd(
@@ -58,8 +68,11 @@ afni_3dcalc = function(
     warning(paste0("Result does not indicate success ", 
                    "- function may not work as expected!"))
   }
-  outfile = paste0(outfile, suffix, ".BRIK")
-  outfile = afni_3dAFNItoNIFTI(outfile, retimg = retimg, ...)
+  if (is.na(out_ext)) {
+    brik_outfile = paste0(outfile, suffix, ".BRIK")
+    outfile = paste0(outfile, suffix, ".BRIK")
+    outfile = afni_3dAFNItoNIFTI(outfile, retimg = retimg, ...)
+  }
   attr(outfile, "afni_version") = afni_version()
   
   return(outfile)

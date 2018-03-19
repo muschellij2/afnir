@@ -13,7 +13,8 @@ they are given names of the letters up to \code{z}.}
 
 \item{expression}{Calculation expression, with single quotes}
 
-\item{outfile}{Output filename (should not have an extension)}
+\item{outfile}{Output filename, should have a \code{.nii.gz}
+extension}
 
 \item{retimg}{Should an image be returned (\code{TRUE}) or a filename?}
 

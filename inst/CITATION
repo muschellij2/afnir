@@ -1,0 +1,8 @@
+structure(list(cox1996afni = structure(list(title = "AFNI: software for analysis and visualization of functional magnetic resonance neuroimages", 
+    author = structure(list(structure(list(given = c("Robert", 
+    "W"), family = "Cox", role = NULL, email = NULL, comment = NULL), .Names = c("given", 
+    "family", "role", "email", "comment"))), class = "person"), 
+    journal = "Computers and Biomedical research", volume = "29", 
+    number = "3", pages = "162--173", year = "1996", publisher = "Elsevier"), .Names = c("title", 
+"author", "journal", "volume", "number", "pages", "year", "publisher"
+), bibtype = "Article", key = "cox1996afni")), class = "bibentry", strings = structure(character(0), .Names = character(0)), .Names = "cox1996afni")

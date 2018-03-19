@@ -18,7 +18,7 @@
 #' doing the alignment (the output dataset will not be blurred).
 #' The default is 2.345 (for no good reason).
 #'
-#' @return Output filename of the brik
+#' @return Output filename of the brik or nifti object, depending on \code{retimg}
 #' @export
 afni_3dQwarp = function(
   file, #source

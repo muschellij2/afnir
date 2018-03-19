@@ -41,7 +41,7 @@ The default is 2.345 (for no good reason).}
 \item{...}{additional arguments to \code{\link{afni_3dAFNItoNIFTI}}}
 }
 \value{
-Output filename of the brik
+Output filename of the brik or nifti object, depending on \code{retimg}
 }
 \description{
 Wrapper for AFNI \code{3dQwarp} function

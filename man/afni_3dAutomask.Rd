@@ -33,7 +33,8 @@ NOT to be peeled.  The 18 nearest neighbors in
 the 3D lattice are used, so \code{n_neighbors} should be between
 9 and 18.}
 
-\item{outfile}{Output filename (should not have an extension)}
+\item{outfile}{Output filename, should have a \code{.nii.gz}
+extension}
 
 \item{retimg}{Should an image be returned (\code{TRUE}) or a filename?}
 
