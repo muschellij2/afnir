@@ -15,9 +15,11 @@
 #' @export
 #'
 #' @examples
+#' if (have_afni()) {
 #' file = kirby21.fmri::get_fmri_filenames()[1]
 #' sub_file = afni_subset_4d(file, time_start = 0, time_end = 1)
 #' dim(neurobase::readnii(sub_file))[4] == 2
+#' }
 afni_subset_4d = function(
   file, 
   time_start = 0,
