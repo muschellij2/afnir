@@ -5,10 +5,12 @@
 \alias{checkimg,afni-method}
 \title{Force object to filename}
 \usage{
-\S4method{checkimg}{afni}(file, allow_array, ...)
+\S4method{checkimg}{afni}(file, allow_array = FALSE, ...)
 }
 \arguments{
 \item{file}{character or \code{afni} object}
+
+\item{allow_array}{allow arrays to be passed in}
 
 \item{...}{options passed to \code{\link{afni_3dAFNItoNIFTI}}}
 }
