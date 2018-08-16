@@ -7,8 +7,8 @@
 afni_cmd(func, file, outfile = NULL, retimg = TRUE, reorient = FALSE,
   intern = FALSE, opts = "", verbose = TRUE, samefile = FALSE,
   opts_after_outfile = FALSE, frontopts = "", add_ext = TRUE,
-  bin_app = "bin", quote_file = TRUE, quote_outfile = TRUE, run = TRUE,
-  ...)
+  bin_app = "bin", quote_file = TRUE, quote_outfile = TRUE,
+  run = TRUE, ...)
 }
 \arguments{
 \item{func}{(character) AFNI function}

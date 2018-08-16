@@ -7,8 +7,8 @@
 \title{AFNI 3dNwarpApply function}
 \usage{
 afni_3dNwarpApply(file, warp, fixed = NULL, interpolator = c("wsinc5",
-  "cubic", "linear", "NN", "quintic"), invert_warp = FALSE, outfile = NULL,
-  retimg = TRUE, opts = "", ...)
+  "cubic", "linear", "NN", "quintic"), invert_warp = FALSE,
+  outfile = NULL, retimg = TRUE, opts = "", ...)
 
 afni_warp_apply(...)
 

@@ -6,8 +6,9 @@
 \alias{qwarp}
 \title{AFNI 3dQwarp function}
 \usage{
-afni_3dQwarp(file, fixed, align = TRUE, align_opts = "", resample = FALSE,
-  blur = 2.345, outfile = NULL, retimg = TRUE, opts = "", ...)
+afni_3dQwarp(file, fixed, align = TRUE, align_opts = "",
+  resample = FALSE, blur = 2.345, outfile = NULL, retimg = TRUE,
+  opts = "", ...)
 
 Qwarp(...)
 

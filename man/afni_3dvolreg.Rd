@@ -5,9 +5,9 @@
 \alias{volreg}
 \title{Perform Volume Registration for Motion Correction}
 \usage{
-afni_3dvolreg(file, interpolation = c("Fourier", "heptic", "quintic", "cubic",
-  "linear"), rp_file = NULL, full_motion_file = NULL, opts = "",
-  retimg = TRUE, ...)
+afni_3dvolreg(file, interpolation = c("Fourier", "heptic", "quintic",
+  "cubic", "linear"), rp_file = NULL, full_motion_file = NULL,
+  opts = "", retimg = TRUE, ...)
 
 volreg(...)
 }

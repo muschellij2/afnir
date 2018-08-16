@@ -1,14 +1,14 @@
 Package: afnir
 Type: Package
 Title: Wrapper Functions for 'AFNI' (Analysis of Functional 'NeuroImages')
-Version: 0.4.5
-Date: 2018-04-26
+Version: 0.4.6
+Date: 2018-08-15
 Author: John Muschelli <muschellij2@gmail.com>
 Maintainer: John Muschelli <muschellij2@gmail.com>
 Imports:
     methods,
     oro.nifti,
-    neurobase
+    neurobase (>= 1.27.0)
 Description: Wrapper functions that interface with 'AFNI' (https://afni.nimh.nih.gov/afni),
     a powerful and commonly-used 'neuroimaging'
     software, using system commands. The goal is to be able to interface with 'AFNI'
@@ -18,8 +18,8 @@ Description: Wrapper functions that interface with 'AFNI' (https://afni.nimh.nih
 BugReports: https://github.com/muschellij2/afnir/issues
 SystemRequirements: AFNI <https://afni.nimh.nih.gov/>
 License: GPL-2
-RoxygenNote: 6.0.1.9000
+RoxygenNote: 6.1.0
 Suggests: covr,
   kirby21.t1,
   kirby21.fmri
-Encoding: UTF-8 
+Encoding: UTF-8

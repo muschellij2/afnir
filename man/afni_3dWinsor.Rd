@@ -6,9 +6,9 @@
 \alias{winsor}
 \title{AFNI 3dWinsor function}
 \usage{
-afni_3dWinsor(file, radius = 1.5, trim = c(0.2, 0.8), repeat_filter = 1,
-  keepzero = FALSE, lower_threshold = NULL, mask = NULL, opts = "",
-  retimg = TRUE, ...)
+afni_3dWinsor(file, radius = 1.5, trim = c(0.2, 0.8),
+  repeat_filter = 1, keepzero = FALSE, lower_threshold = NULL,
+  mask = NULL, opts = "", retimg = TRUE, ...)
 
 Winsor(...)
 

@@ -5,7 +5,7 @@
 \alias{checkimg,afni-method}
 \title{Force object to filename}
 \usage{
-\S4method{checkimg}{afni}(file, ...)
+\S4method{checkimg}{afni}(file, allow_array, ...)
 }
 \arguments{
 \item{file}{character or \code{afni} object}

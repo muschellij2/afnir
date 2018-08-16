@@ -5,9 +5,9 @@
 \alias{tshift}
 \title{Convert AFNI File to NIFTI Image}
 \usage{
-afni_3dTshift(file, tr, tpattern = c("alt+z", "alt+z2", "alt-z", "alt-z2",
-  "seq+z", "seq-z"), tzero = NULL, slice = NULL, ignore_vols = 0,
-  opts = "", retimg = TRUE, ...)
+afni_3dTshift(file, tr, tpattern = c("alt+z", "alt+z2", "alt-z",
+  "alt-z2", "seq+z", "seq-z"), tzero = NULL, slice = NULL,
+  ignore_vols = 0, opts = "", retimg = TRUE, ...)
 
 tshift(...)
 }

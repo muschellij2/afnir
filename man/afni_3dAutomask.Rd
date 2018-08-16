@@ -6,8 +6,9 @@
 \alias{automask}
 \title{AFNI 3dAutomask function}
 \usage{
-afni_3dAutomask(file, mfrac = 0.5, gradual_clipping = TRUE, n_peels = 1,
-  n_neighbors = 17, outfile = NULL, retimg = TRUE, opts = "", ...)
+afni_3dAutomask(file, mfrac = 0.5, gradual_clipping = TRUE,
+  n_peels = 1, n_neighbors = 17, outfile = NULL, retimg = TRUE,
+  opts = "", ...)
 
 Automask(...)
 

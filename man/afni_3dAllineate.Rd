@@ -5,11 +5,12 @@
 \alias{allineate}
 \title{AFNI 3dAllineate function}
 \usage{
-afni_3dAllineate(file, fixed, cost = c("hel", "ls", "mi", "crM", "nmi", "crA",
-  "crU"), interpolator = c("linear", "cubic", "NN", "quintic"),
+afni_3dAllineate(file, fixed, cost = c("hel", "ls", "mi", "crM", "nmi",
+  "crA", "crU"), interpolator = c("linear", "cubic", "NN", "quintic"),
   final_interpolator = c("cubic", "linear", "NN", "wsinc5", "quintic"),
   typeOfTransform = c("affine_general", "shift_only", "shift_rotate",
-  "shift_rotate_scale"), outfile = NULL, retimg = TRUE, opts = "", ...)
+  "shift_rotate_scale"), outfile = NULL, retimg = TRUE, opts = "",
+  ...)
 
 allineate(...)
 }

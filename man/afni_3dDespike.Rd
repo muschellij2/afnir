@@ -6,8 +6,9 @@
 \title{Convert AFNI File to NIFTI Image}
 \usage{
 afni_3dDespike(file, ignore_vols = 0, curve_order = NULL,
-  cut_values = c(2.5, 4), mask = TRUE, dilate = 4, localedit = FALSE,
-  method = c("OLD", "NEW"), opts = "", retimg = TRUE, ...)
+  cut_values = c(2.5, 4), mask = TRUE, dilate = 4,
+  localedit = FALSE, method = c("OLD", "NEW"), opts = "",
+  retimg = TRUE, ...)
 
 despike(...)
 }

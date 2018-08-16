@@ -4,8 +4,8 @@
 \alias{afni_3dcalc}
 \title{AFNI 3dcalc function}
 \usage{
-afni_3dcalc(file, expression, outfile = NULL, retimg = TRUE, opts = "",
-  ...)
+afni_3dcalc(file, expression, outfile = NULL, retimg = TRUE,
+  opts = "", ...)
 }
 \arguments{
 \item{file}{nifti object or NIfTI filename.  If more than one is given,
