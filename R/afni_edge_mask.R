@@ -13,7 +13,7 @@ afni_edge_mask = function(
   ...) {
 
   # reate a mask of edge-only voxels via
-  file = checkimg(file)
+  file = checkimg(file, allow_array = FALSE)
   opts = c(b = "a+i", c = "a-i", 
            d = "a+j", e = "a-j", 
            f = "a+k", g = "a-k")

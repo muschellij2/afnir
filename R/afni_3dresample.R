@@ -36,7 +36,7 @@ afni_3dresample = function(
   
   func = "3dresample"
   
-  file = checkimg(file)
+  file = checkimg(file, allow_array = FALSE)
   suffix = afni_suffix(file, default = "orig")
   
   ppaste0 = function(..., x) {
@@ -51,7 +51,7 @@ afni_3dresample = function(
   #############################################  
   
   if (!is.null(master)) {
-    master = checkimg(master)
+    master = checkimg(master, allow_array = FALSE)
   }
   opts = c(opts, ppaste0("-master ", x = master))
   

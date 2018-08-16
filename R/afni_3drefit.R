@@ -14,7 +14,7 @@ afni_3drefit = function(
   ...) {
   
   func = "3drefit"
-  file = checkimg(file)
+  file = checkimg(file, allow_array = FALSE)
   
   #############################################
   # Making all the options

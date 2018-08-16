@@ -54,7 +54,7 @@ afni_3dWinsor = function(
   }
   trim = sort(trim)
 
-  file = checkimg(file)
+  file = checkimg(file, allow_array = FALSE)
   suffix = afni_suffix(file, default = "orig")
   
   
@@ -63,7 +63,7 @@ afni_3dWinsor = function(
   opts = c(opts, paste0("-ctop ", trim[2]))
   opts = c(opts, ppaste0("-nrep ", x = repeat_filter))
   if (!is.null(mask)) {
-    mask = checkimg(mask)
+    mask = checkimg(mask, allow_array = FALSE)
     opts = c(opts, paste0("-mask ", mask))
   }
   opts = c(opts, ifelse(keepzero, "-keepzero ", ""))

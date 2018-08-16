@@ -35,7 +35,7 @@ afni_3dAutomask = function(
   ...) {
   func = "3dAutomask"
 
-  file = checkimg(file)
+  file = checkimg(file, allow_array = FALSE)
   # suffix = afni_suffix(file, default = "orig")
   
   opts = c(opts, paste0("-clfrac ", mfrac))

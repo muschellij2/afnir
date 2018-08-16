@@ -20,8 +20,8 @@ afni_3dABoverlap = function(
   cmd <- paste0(cmd, func)
   
   
-  file1 = checkimg(file1)
-  file2 = checkimg(file2)
+  file1 = checkimg(file1, allow_array = FALSE)
+  file2 = checkimg(file2, allow_array = FALSE)
   
   opts = ""
   if (!automask) {

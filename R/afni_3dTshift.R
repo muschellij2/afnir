@@ -43,7 +43,7 @@ afni_3dTshift = function(
   
   func = "3dTshift"
   
-  file = checkimg(file)
+  file = checkimg(file, allow_array = FALSE)
   suffix = afni_suffix(file, default = "orig")
   
   ppaste0 = function(..., x) {

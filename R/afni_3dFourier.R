@@ -30,7 +30,7 @@ afni_3dFourier = function(
   func = "3dFourier"
   
   opts = trimws(opts)
-  file = checkimg(file)
+  file = checkimg(file, allow_array = FALSE)
   
   ppaste0 = function(..., x) {
     if (is.null(x)) {

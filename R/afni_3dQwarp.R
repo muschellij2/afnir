@@ -34,10 +34,10 @@ afni_3dQwarp = function(
   
   func = "3dQwarp"
   
-  file = checkimg(file)
+  file = checkimg(file, allow_array = FALSE)
   suffix = afni_suffix(file, default = "tlrc")
   
-  fixed = checkimg(fixed)
+  fixed = checkimg(fixed, allow_array = FALSE)
   
   ppaste0 = function(..., x) {
     if (is.null(x)) {

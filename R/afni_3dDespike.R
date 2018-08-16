@@ -77,7 +77,7 @@ afni_3dDespike = function(
   # end of options
   #############################################
   
-  file = checkimg(file)
+  file = checkimg(file, allow_array = FALSE)
   suffix = afni_suffix(file, default = "orig")
   
   outfile = tempfile(fileext = "")

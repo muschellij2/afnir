@@ -39,13 +39,13 @@ afni_3dNwarpApply = function(
   
   func = "3dNwarpApply"
   
-  file = checkimg(file)
+  file = checkimg(file, allow_array = FALSE)
   suffix = afni_suffix(file, default = "tlrc")
   
   #############################
   # Put the warps together
   #############################  
-  warp = checkimg(warp)
+  warp = checkimg(warp, allow_array = FALSE)
   warp = paste(warp, collapse = " ")
   warp = afni_quote_expression(warp)
 
@@ -64,7 +64,7 @@ afni_3dNwarpApply = function(
   
   if (!is.null(fixed)) {
     if (fixed != "WARP") {
-      fixed = checkimg(fixed)
+      fixed = checkimg(fixed, allow_array = FALSE)
     }
   }
   opts = c(opts, ppaste0("-master ", x = fixed))

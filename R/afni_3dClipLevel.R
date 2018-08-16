@@ -28,7 +28,7 @@ afni_3dClipLevel = function(
   func = "3dClipLevel"
   
   
-  file = checkimg(file)
+  file = checkimg(file, allow_array = FALSE)
   opts = c(opts, paste0("-mfrac ", mfrac))
   opts = trimws(opts)
   opts = opts[ opts != "" ]

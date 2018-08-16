@@ -20,7 +20,7 @@ afni_3dSkullStrip = function(
   
   func = "3dSkullStrip"
   
-  file = checkimg(file)
+  file = checkimg(file, allow_array = FALSE)
   suffix = afni_suffix(file, default = "orig")
   
   outfile = tempfile()

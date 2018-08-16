@@ -21,7 +21,7 @@ afni_3dTstat = function(
   
   opts = trimws(opts)
   
-  file = checkimg(file)
+  file = checkimg(file, allow_array = FALSE)
   suffix = afni_suffix(file[1], default = "orig")
   
   if (is.null(outfile)) {

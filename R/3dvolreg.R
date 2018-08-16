@@ -40,7 +40,7 @@ afni_3dvolreg = function(
   
   
   func = "3dvolreg"
-  file = checkimg(file)
+  file = checkimg(file, allow_array = FALSE)
   suffix = afni_suffix(file, default = "orig")
   
   ppaste0 = function(..., x) {

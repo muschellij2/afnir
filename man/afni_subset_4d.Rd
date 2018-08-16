@@ -29,8 +29,11 @@ A \code{nifti} object or an output file depending on
 Subset 4D images
 }
 \examples{
+library(kirby21.fmri)
 if (have_afni()) {
-file = kirby21.fmri::get_fmri_filenames()[1]
+tdir = tempfile()
+res = download_fmri_data(outdir = tdir)
+file = kirby21.fmri::get_fmri_filenames(outdir = tdir)[1]
 sub_file = afni_subset_4d(file, time_start = 0, time_end = 1)
 dim(neurobase::readnii(sub_file))[4] == 2
 }

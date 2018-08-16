@@ -26,7 +26,7 @@ afni_3dcalc = function(
   opts = paste0("-expr ", expression, " ", opts)
   opts = trimws(opts)
   
-  file = checkimg(file)
+  file = checkimg(file, allow_array = FALSE)
   suffix = afni_suffix(file[1], default = "orig")
   
   names(file) = letters[seq(length(file))]
